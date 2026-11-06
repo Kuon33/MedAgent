@@ -1,0 +1,29 @@
+# 基础依赖（simple_agent）
+openai>=1.99.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# LangGraph 重构版（patient_agent/graph）
+langgraph>=1.0.0
+langchain-core>=1.0.0
+langgraph-checkpoint-sqlite>=3.0.0
+
+# API 服务层
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+
+# Gradio 界面版
+gradio>=5.0.0
+
+# 病历文档解析（PDF / DOCX）
+pymupdf>=1.24.0
+python-docx>=1.1.0
+
+# 语音识别（Qwen3-ASR-1.7B，本地离线推理）
+# 注意：qwen-asr 会锁定 transformers==4.57.6，与主环境的其他依赖可能冲突。
+# 建议装在独立环境，或用 --extra-index-url 指定 torch 的 CUDA 版本。
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   pip install qwen-asr librosa soundfile
+qwen-asr==0.0.6
+librosa>=0.10.0
+soundfile>=0.12.0

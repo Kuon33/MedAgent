@@ -1,0 +1,151 @@
+[
+  {
+    "id": "test_cardiology_001",
+    "name": "活动后胸闷胸痛",
+    "target_department": "心内科",
+    "patient_id": "test_cardiology_001",
+    "purpose": "验证主分诊进入心内科，科室子 agent 能快速收集胸痛特征、诱因、伴随症状和心血管风险因素。",
+    "suggested_inputs": [
+      "最近一周爬楼后胸口发闷，有时候心前区隐隐痛，休息几分钟会缓解。",
+      "每次大概 3 到 5 分钟，不向左肩或下颌放射，没有晕倒，也没有持续胸痛。",
+      "有高血压两年，平时吃氨氯地平，没有冠心病史，没有药物过敏。",
+      "是"
+    ],
+    "expected": {
+      "triage_department": "心内科",
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "red_flags": [],
+      "appointment_department": "心内科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_respiratory_001",
+    "name": "咳嗽咳痰低热",
+    "target_department": "呼吸内科",
+    "patient_id": "test_respiratory_001",
+    "purpose": "验证咳嗽、咳痰、发热类主诉会进入呼吸内科，并能排除咯血和明显呼吸困难等急诊风险。",
+    "suggested_inputs": [
+      "咳嗽三天了，有黄痰，昨天开始有点发热，最高 38 度。",
+      "没有咯血，走路不喘，说话也不费劲，胸口只是咳得有点疼。",
+      "最近同事有人感冒，没有哮喘和慢阻肺病史，没有药物过敏。",
+      "y"
+    ],
+    "expected": {
+      "triage_department": "呼吸内科",
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "red_flags": [],
+      "appointment_department": "呼吸内科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_gastroenterology_001",
+    "name": "餐后上腹痛反酸",
+    "target_department": "消化内科",
+    "patient_id": "test_gastroenterology_001",
+    "purpose": "验证上腹痛、反酸、烧心、进食相关不适会进入消化内科，并收集大便、呕吐、饮食和用药信息。",
+    "suggested_inputs": [
+      "这两周饭后上腹部胀痛，有反酸和烧心，晚上躺下更明显。",
+      "没有呕血，没有黑便或便血，大便基本正常，偶尔恶心但没吐。",
+      "最近工作忙，经常喝咖啡和吃辣，没有胃手术史，暂时没规律吃药。",
+      "yes"
+    ],
+    "expected": {
+      "triage_department": "消化内科",
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "red_flags": [],
+      "appointment_department": "消化内科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_dermatology_001",
+    "name": "接触后皮疹瘙痒",
+    "target_department": "皮肤科",
+    "patient_id": "test_dermatology_001",
+    "purpose": "验证皮疹瘙痒类主诉会进入皮肤科，并收集皮损部位、形态、诱因和过敏风险。",
+    "suggested_inputs": [
+      "前天用了新的护肤品后，脸和脖子起了红疹，很痒。",
+      "没有嘴唇肿、喉咙紧或呼吸困难，也没有发热，皮疹没有明显渗液。",
+      "以前对某些香精类护肤品过敏，现在没吃新药，也没有其他基础病。",
+      "是"
+    ],
+    "expected": {
+      "triage_department": "皮肤科",
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "red_flags": [],
+      "appointment_department": "皮肤科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_neurology_001",
+    "name": "反复头痛头晕",
+    "target_department": "神经内科",
+    "patient_id": "test_neurology_001",
+    "purpose": "验证头痛头晕类主诉会进入神经内科，并能排除一侧无力、言语不清、意识异常等红旗。",
+    "suggested_inputs": [
+      "最近一个月反复头痛头晕，主要是太阳穴胀痛，工作久了会明显。",
+      "不是突然爆炸样疼痛，没有一侧手脚无力，没有口角歪斜或说话不清。",
+      "有时恶心但没吐，没有抽搐和意识丧失，最近睡眠比较差。",
+      "y"
+    ],
+    "expected": {
+      "triage_department": "神经内科",
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "red_flags": [],
+      "appointment_department": "神经内科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_urgent_001",
+    "name": "神经系统急诊红旗",
+    "target_department": "急诊科",
+    "patient_id": "test_urgent_001",
+    "purpose": "验证急诊红旗识别：突发剧烈头痛、一侧无力、言语不清应触发 urgent，挂号科室应转急诊科。",
+    "suggested_inputs": [
+      "我半小时前突然剧烈头痛，右手右脚没力，说话也有点含糊。",
+      "症状是突然出现的，现在还没有缓解，人有点恶心，但没有外伤。",
+      "是"
+    ],
+    "expected": {
+      "triage_department": "急诊科",
+      "final_status": ["urgent"],
+      "red_flags_should_include": ["突发剧烈头痛", "一侧肢体无力", "言语不清"],
+      "appointment_department": "急诊科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  },
+  {
+    "id": "test_handoff_001",
+    "name": "从心内科线索切换到呼吸内科",
+    "target_department": "呼吸内科",
+    "patient_id": "test_handoff_001",
+    "purpose": "验证子 agent 发现当前科室不合适时能 handoff，主 agent 根据摘要重新进入更合适科室。",
+    "suggested_inputs": [
+      "这两天胸口发闷，有点心慌，活动时不太舒服。",
+      "其实主要是咳嗽很多，有黄痰和发热，胸口不适多是在咳嗽时出现。",
+      "没有压榨样胸痛，没有大汗或晕倒，最高体温 38.2 度。",
+      "有同事最近感冒，没有哮喘史，没有咯血。",
+      "是"
+    ],
+    "expected": {
+      "initial_department_may_be": ["心内科", "呼吸内科"],
+      "final_department": "呼吸内科",
+      "handoff_allowed": true,
+      "switch_count_max": 2,
+      "final_status": ["finished", "finished_by_turn_limit"],
+      "appointment_department": "呼吸内科",
+      "report_should_be_saved": true,
+      "doctor_report_should_not_print_to_cli": true
+    }
+  }
+]
